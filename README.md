@@ -9,20 +9,20 @@ See [action.yml](action.yml)
 Basic:
 
 ```yaml
-steps:
-- uses: actions/checkout@master
-- uses: fregante/setup-git-token@v1
-  with:
-    token: ${{ secret.GITHUB_TOKEN }}
-- run: git branch new-branch
-- run: git push origin new-branch
+    steps:
+    - uses: actions/checkout@master
+    - uses: fregante/setup-git-token@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - run: git branch new-branch
+    - run: git push origin new-branch
 ```
 
 By default, new commits and tags will be assigned to the [@actions](https://github.com/actions) user. If you wish to customize the committer, specify that using `with.email` and `with.name`:
 
 ```yaml
-- uses: fregante/setup-git-token@v1
-  with:
-    name: The Bot
-    email: bot@example.com
+    - uses: fregante/setup-git-token@v1
+      with:
+        name: The Bot
+        email: bot@example.com
 ```

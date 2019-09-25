@@ -2,7 +2,7 @@ name: Setup GIT token
 description: GitHub Action that sets the GITHUB_TOKEN as credentials for git (enables `git push`)
 author: Federico Brigante
 branding:
-  icon: key
+  icon: chevron-up
   color: yellow
 inputs:
   token:
