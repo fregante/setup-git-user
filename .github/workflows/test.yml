@@ -1,10 +1,8 @@
-name: "Run JavaScript Action"
+name: CI
 on:
   pull_request:
   push:
     branches:
-      - master
-      - 'releases/*'
 
 jobs:
   test:
@@ -14,6 +12,12 @@ jobs:
 
     - run: npm ci
     - run: npm test
-    - uses: ./
+    - name: Run Action
+      uses: ./
       with:
-        milliseconds: 1000
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Test the action by creating and deleting a tag
+      run: |
+        git tag testing-tag
+        git push origin testing-tag
+        git push --delete origin testing-tag

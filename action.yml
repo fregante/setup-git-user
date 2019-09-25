@@ -1,13 +1,20 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: Setup GIT token
+description: GitHub Action that sets the GITHUB_TOKEN as credentials for git (enables `git push`)
+author: Federico Brigante
+branding:
+  icon: key
+  color: yellow
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  token:
     required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+    description: The token provided by GitHub actions via secrets.GITHUB_TOKEN
+  name:
+    default: GitHub actions
+    description: The name that will be used as "Author" of future commits
+  email:
+    default: actions@users.noreply.github.com
+    description: The email that will be used as "Author" of future commits
+
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: node12
+  main: index.js
