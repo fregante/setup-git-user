@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      Version:
+        description: 'Example: v1.2.3'
+        required: true
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 50
+      - run: git tag ${{ github.event.inputs.Version }}
+      - uses: notlmn/release-with-changelog@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          exclude: ^Meta
+      - name: Update major tag
+        run: |
+          MAJOR=$(echo ${{ github.event.inputs.Version }} | sed 's/\..*//')
+          git push origin HEAD:refs/tags/$MAJOR --force
