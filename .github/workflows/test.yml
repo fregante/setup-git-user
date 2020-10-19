@@ -2,22 +2,22 @@ name: CI
 on:
   pull_request:
   push:
-    branches:
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm test
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-
-    - run: npm ci
-    - run: npm test
-    - name: Run Action
-      uses: ./
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Test the action by creating and deleting a tag
-      run: |
-        git tag testing-tag
-        git push origin testing-tag
-        git push --delete origin testing-tag
+      - uses: actions/checkout@v2
+      - name: Run Action
+        uses: ./
+      - name: Test the action by creating and deleting a commit
+        run: |
+          git commit --allow-empty --message 'git test'
+          git push origin HEAD:testing-branch
+          git push --delete origin testing-branch
