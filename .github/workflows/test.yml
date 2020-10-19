@@ -2,15 +2,18 @@ name: CI
 on:
   pull_request:
   push:
+    branches:
+      - '*'
 
 jobs:
-  lint:
+  Lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm ci
       - run: npm test
-  test:
+
+  Test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
