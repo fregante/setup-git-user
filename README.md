@@ -18,7 +18,7 @@ This action is a convenience action sets the user and email in one line.
       - run: git push
 ```
 
-New commits and tags will be assigned to the [@actions](https://github.com/actions) user. If you want to customize the user, **you don't need this action**. Use use:
+New commits and tags will be assigned to the [@actions](https://github.com/actions) user. If you want to customize the user, **you don't need this action**. Just use:
 
 ```yaml
     steps:
