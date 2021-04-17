@@ -16,7 +16,6 @@ jobs:
   Test:
     name: Live Action Test
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v2
       - name: Run Action
@@ -24,5 +23,5 @@ jobs:
       - name: Test the action by creating and deleting a commit
         run: |
           git commit --allow-empty --message 'git test'
-          git push origin HEAD:testing-branch
+          git push origin HEAD:refs/heads/testing-branch
           git push --delete origin testing-branch
