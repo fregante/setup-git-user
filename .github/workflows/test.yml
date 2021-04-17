@@ -11,9 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm ci
-      - run: npm test
+      - run: npx xo
 
   Test:
+    name: Live Action Test
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
     steps:
