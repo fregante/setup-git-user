@@ -2,8 +2,8 @@
 
 require('fs').appendFile('.git/config', `
 [user]
-	name = GitHub Actions
-	email = actions@users.noreply.github.com
+	name = github-actions[bot]
+	email = 41898282+github-actions[bot]@users.noreply.github.com
 `, error => {
 	if (error) {
 		throw error;
