@@ -1,7 +1,7 @@
 env: {}
 
 # FILE GENERATED WITH: npx ghat fregante/ghatemplates/action-release
-# SOURCE: https://github.com/fregante/ghatemplates
+# SOURCE: https://github.com/fregante/ghatemplates 
 
 name: Release
 
