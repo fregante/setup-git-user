@@ -29,6 +29,19 @@ New commits and tags will be assigned to the [@actions](https://github.com/actio
       - run: git push
 ```
 
+You can optionally specify a working directory housing the `.git/config` this action modifies. This is useful if you are checking out multiple directories:
+
+```yaml
+    steps:
+      - uses: actions/checkout@v2
+        path: pizza
+      - uses: actions/checkout@v2
+        path: pasta
+      - uses: fregante/setup-git-user@v1
+        with:
+          working-directory: pasta
+```
+
 ## Related
 
 - [daily-version-action](https://github.com/fregante/daily-version-action) - Creates a new tag using the format Y.M.D, but only if HEAD isn’t already tagged.

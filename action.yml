@@ -4,7 +4,11 @@ author: Federico Brigante
 branding:
   icon: chevron-up
   color: yellow
-
+inputs:
+  working-directory:
+    description: 'Path within which to configure git.'
+    required: false
+    default: './'
 runs:
   using: node12
   main: index.js
