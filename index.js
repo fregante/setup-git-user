@@ -1,6 +1,6 @@
 'use strict';
 
-require('fs').appendFile('.git/config', `
+require('fs').appendFile(process.env.GITHUB_REPOSITORY + '/.git/config', `
 [user]
 	name = github-actions[bot]
 	email = 41898282+github-actions[bot]@users.noreply.github.com
