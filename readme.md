@@ -12,8 +12,8 @@ This action is a convenience action which sets the user and email in one line.
 
 ```yaml
     steps:
-      - uses: actions/checkout@v2
-      - uses: fregante/setup-git-user@v1
+      - uses: actions/checkout@v3
+      - uses: fregante/setup-git-user@v2
       - run: git commit --message 'Something cool'
       - run: git push
 ```
@@ -22,7 +22,7 @@ New commits and tags will be assigned to the [@actions](https://github.com/actio
 
 ```yaml
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: git config --global user.email "you@example.com"
       - run: git config --global user.name "Your Name"
       - run: git commit --message 'Something cool'
