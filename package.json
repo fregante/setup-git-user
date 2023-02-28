@@ -1,9 +1,0 @@
-{
-	"private": true,
-	"scripts": {
-		"test": "xo"
-	},
-	"devDependencies": {
-		"xo": "~0.38.2"
-	}
-}

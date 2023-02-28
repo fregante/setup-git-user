@@ -1,10 +1,14 @@
-name: Setup GIT user
-description: GitHub Action that sets the git user and email to enable commiting
+name: Setup Git user
+description: Sets the Git user and email to enable committing
 author: Federico Brigante
 branding:
   icon: chevron-up
   color: yellow
 
 runs:
-  using: node16
-  main: index.js
+  using: composite
+  steps:
+    - run: |
+      git config --global user.name "GitHub Actions"
+    - run:
+      git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
