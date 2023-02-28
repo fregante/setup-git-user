@@ -10,5 +10,5 @@ runs:
   steps:
     - run: |
       git config --global user.name "GitHub Actions"
-    - run:
+    - run: |
       git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
