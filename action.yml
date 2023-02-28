@@ -8,7 +8,9 @@ branding:
 runs:
   using: composite
   steps:
-    - run: |
-      git config --global user.name "GitHub Actions"
-    - run: |
-      git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    - shell: bash
+      run: |
+        git config --global user.name "GitHub Actions"
+    - shell: bash
+      run: |
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
