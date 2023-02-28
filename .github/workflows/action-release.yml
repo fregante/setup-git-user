@@ -18,15 +18,8 @@ jobs:
   Release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 50
-      - run: git tag ${{ github.event.inputs.Version }}
-      - uses: fregante/release-with-changelog@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          exclude: true
-          template: '{commits}'
+      - uses: actions/checkout@v3
+      - run: gh release ${{ github.event.inputs.Version }} --generate-notes
       - name: Update major tag
         run: |
           MAJOR=$(echo ${{ github.event.inputs.Version }} | sed 's/\..*//')

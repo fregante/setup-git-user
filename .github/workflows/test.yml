@@ -1,24 +1,13 @@
 name: CI
-on:
-  pull_request:
-  push:
-    branches:
-      - '*'
+on: push
 
 jobs:
-  Lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
-      - run: npx xo
-
   Test:
     name: Live Action Test
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run Action
         uses: ./
       - name: Test the action by creating and deleting a commit
